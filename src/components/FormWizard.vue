@@ -206,8 +206,11 @@ export default {
     },
     stepPercentage() {
       let tabAvg = Math.floor(100 / this.tabCount);
-      return tabAvg + Math.floor(tabAvg / 2);
-      // return (1 / (this.tabCount * 2)) * 100;
+      let halfTab = Math.floor(tabAvg / 2);
+      if (this.tabCount > 2) {
+        return tabAvg + halfTab;
+      }
+      return 100;
     },
     progressBarStyle() {
       return {
